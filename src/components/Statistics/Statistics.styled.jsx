@@ -1,8 +1,5 @@
 import styled from '@emotion/styled';
 
-export const StatisticsHead = styled.h2`
-	color: #2d2c3e;
-`;
 export const FeedBackStatisticsAccent = styled.span`
 	color: #eb9532;
 `;
