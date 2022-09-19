@@ -1,12 +1,5 @@
-import {
-	// FeedBackHead,
-	FeedBackBtn,
-	// FeedBackBtnNeutral,
-	// FeedBackBtnBad,
-	// FeedBackHeadAccent,
-	FeedBackBtnWrapper,
-} from './FeedbackOptions.styled';
-
+import { FeedBackBtn, FeedBackBtnWrapper } from './FeedbackOptions.styled';
+import PropTypes from 'prop-types';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 	return (
 		<>
@@ -24,21 +17,9 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 				))}
 			</FeedBackBtnWrapper>
 		</>
-		// <>
-		// 	<FeedBackHead>
-		// 		Please leave <FeedBackHeadAccent>feedback</FeedBackHeadAccent>
-		// 	</FeedBackHead>
-		// 	<FeedBackBtnWrapper>
-		// 		<FeedBackBtnGood type="button" onClick={this.handleIncrement}>
-		// 			Good
-		// 		</FeedBackBtnGood>
-		// 		<FeedBackBtnNeutral type="button" onClick={this.handleIncrement}>
-		// 			Neutral
-		// 		</FeedBackBtnNeutral>
-		// 		<FeedBackBtnBad type="button" onClick={this.handleIncrement}>
-		// 			Bad
-		// 		</FeedBackBtnBad>
-		// 	</FeedBackBtnWrapper>
-		// </>
 	);
+};
+FeedbackOptions.propTypes = {
+	options: PropTypes.arrayOf(PropTypes.string).isRequired,
+	onLeaveFeedback: PropTypes.func.isRequired,
 };
