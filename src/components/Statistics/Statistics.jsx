@@ -11,9 +11,6 @@ import PropTypes from 'prop-types';
 export const Statistics = ({ good, neutral, bad, total, totalPositive }) => {
 	return (
 		<>
-			{/* <StatisticsHead>
-				Statistics <FeedBackStatisticsAccent>:</FeedBackStatisticsAccent>
-			</StatisticsHead> */}
 			<StatisticsGood>Good: {good}</StatisticsGood>
 			<StatisticsNeutral>Neutral: {neutral}</StatisticsNeutral>
 			<StatisticsBad>Bad: {bad}</StatisticsBad>

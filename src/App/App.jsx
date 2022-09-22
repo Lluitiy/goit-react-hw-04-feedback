@@ -22,8 +22,10 @@ export class App extends Component {
 	};
 
 	handleTotal = () => {
-		const { good, neutral, bad } = this.state;
-		return good + neutral + bad;
+		const arrValue = Object.values(this.state);
+		return arrValue.reduce((acc, value) => {
+			return acc + value;
+		}, 0);
 	};
 	handlePositive = () => {
 		const { good } = this.state;
@@ -38,18 +40,22 @@ export class App extends Component {
 					<Box>
 						<Section title="Leave your feedback">
 							<FeedbackOptions
-								options={['good', 'neutral', 'bad']}
+								options={Object.keys(this.state)}
 								onLeaveFeedback={this.handleIncrement}
 							/>
 						</Section>
 						<Section title="Statistics:">
-							{this.handleTotal() ?<Statistics
-								good={good}
-								neutral={neutral}
-								bad={bad}
-								total={this.handleTotal()}
-								totalPositive={this.handlePositive()}
-							/> : <Notification message="There is no feedback" /> }
+							{this.handleTotal() ? (
+								<Statistics
+									good={good}
+									neutral={neutral}
+									bad={bad}
+									total={this.handleTotal()}
+									totalPositive={this.handlePositive()}
+								/>
+							) : (
+								<Notification message="There is no feedback" />
+							)}
 						</Section>
 					</Box>
 				</Box>
@@ -57,4 +63,3 @@ export class App extends Component {
 		);
 	}
 }
-// total={ } positivePercentage={ }
