@@ -1,18 +1,19 @@
+import { useState } from 'react';
 import { Box } from 'Box/Box';
 import { Container } from 'App/App.styled';
-import { useState } from 'react';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Statistics } from 'components/Statistics/Statistics';
 import { Notification } from 'components/Notification/Notification';
 import { Section } from 'components/Section/Section';
 
 export const App = () => {
-	const [good, setGood] = useState(0);
-	const [neutral, setNeutral] = useState(0);
-	const [bad, setBad] = useState(0);
+	const [good, setGood] = useState('');
+	const [neutral, setNeutral] = useState('');
+	const [bad, setBad] = useState('');
 
 	const handleIncrement = e => {
-		switch (e) {
+		const option = e.target.name;
+		switch (option) {
 			case 'good':
 				setGood(prevState => prevState + 1);
 				break;
